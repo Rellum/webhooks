@@ -1,9 +1,11 @@
 package webhooks
 
 import (
+	"log"
 	"fmt"
 	"net/http"
 	"net/http/httputil"
+	"os"
 )
 
 func DefaultHTTP(w http.ResponseWriter, r *http.Request) {
@@ -14,5 +16,6 @@ func DefaultHTTP(w http.ResponseWriter, r *http.Request) {
 			return
 	}
 
+	os.Stdout.Write(b)
 	w.Write(b)
 }
